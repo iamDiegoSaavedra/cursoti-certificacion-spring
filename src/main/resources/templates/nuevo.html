@@ -1,0 +1,227 @@
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/css/font-awesome/css/font-awesome.min.css}">
+<link th:rel="stylesheet" th:href="@{/css/footer.css}">
+<style>
+	@media (min-width: 1025px) {
+.h-custom {
+height: 100vh !important;
+}
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+
+@media (min-width: 992px) {
+.card-registration-2 .bg-indigo {
+border-top-right-radius: 15px;
+border-bottom-right-radius: 15px;
+}
+}
+@media (max-width: 991px) {
+.card-registration-2 .bg-indigo {
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+}
+}
+
+.page-title{
+    padding: 25px 0;
+}
+
+.page-title h1{
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    font-size: 38px;
+}
+</style>
+</head>
+
+<body style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/"><i class="fa fa-university" aria-hidden="true"></i> Cursos Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/acerca">Acerca de</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container">
+        
+        
+        
+        <div class="page-title text-center">
+			<h1>Registrate</h1>
+		</div>
+     
+      
+   <div class="row">
+   	<a th:href="@{/}" class="btn btn-outline-primary" ><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> regresar</a>
+  </div>
+</div>
+
+
+<section class="h-100 h-custom gradient-custom-2">
+  <div class="container py-5 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+          
+          	<div class="col">
+   		
+        <form action="#" th:action="@{/guardar}" th:object="${estudiante}" method="post">
+			 <fieldset>
+                    <legend>Información de Cuenta</legend>
+			
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="userName">RUT *</label>
+                                <span>- username</span>
+                                <input id="userName" name="username" th:field="*{rut}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="password">Password *</label>
+                                <input id="password" name="password" th:field="*{password}" type="password"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input id="nombre" name="nombre" th:field="*{nombre}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="cel">Telefono *</label>
+                                <input id="cel" name="cel" th:field="*{telefono}" type="text"
+                                       class="form-control required">
+                     		</div>
+                        </div>
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="Direccion">Direccion *</label>
+                                <input id="Direccion" name="Direccion" th:field="*{direccion}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="Email">Email *</label>
+                                <input id="Email" name="Email" th:field="*{email}" type="email"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                     		<label for="Region">Region *</label>
+                     		</div>
+                     		<div class="form-group">
+                                        <select  id="Region" name="Region" th:field="*{idRegion}">
+										    <option th:each="i : ${regiones}" th:value="${i.id}" th:text="${i.detalle}">
+										    </option>
+									    </select>
+                     		</div>
+                     		<div class="form-group">
+                                <label for="edad">Edad *</label>
+                                <input id="edad" name="edad" th:field="*{edad}" type="number"
+                                       class="form-control required">
+                     		</div>
+                        </div>
+                    </div>
+			 </fieldset>  
+			 <div class="form-check d-flex justify-content-start mb-4 pb-3">
+			 <button class="btn btn-large btn-success" type="submit">Registrar</button>
+			 </div>
+			 
+		</form>
+		<span style="color:red" th:text="${mensaje}"></span>
+   	</div>
+            
+                  
+                 
+                         
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+                    <!--<div class="col-md-6 mb-4 pb-2">
+
+                      <div class="form-outline">
+                        <input type="text" id="form3Examplev2" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev2">First name</label>
+                      </div>
+
+                    </div>-->
+
+
+
+
+
+
+
+<!--/#bottom-->
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2022 <a target="_blank" href="#" title=""> Diego Saavedra</a>.
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/acerca">Acerca de Nosotros</a></li>
+                    <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

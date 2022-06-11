@@ -1,0 +1,81 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/css/stylesheet.css}">
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/css/font-awesome/css/font-awesome.min.css}">
+<link th:rel="stylesheet" th:href="@{/css/footer.css}">
+</head>
+<body>
+
+	<div class="container">
+		<a th:href="@{/}" ><p><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> regresar</p></a>
+		<div th:if="${param.error}" class="alert alert-danger">    
+        	Usuario o password invalido.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success"> 
+            Finalizaste sesión.
+        </div>
+        
+        <div class="col-md-6 offset-md-3">
+        
+	     <div class="card my-5">
+			
+			
+			<form class="card-body cardbody-color p-lg-5" method="POST" th:action="@{/login}">
+				<div class="title text-center">
+        			<h3>Login</h3>
+	        		<p>por favor iniciar sesión</p>
+	    		</div>
+				<div class="text-center mb-5">
+              		<h5><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i></h5>
+            	</div>
+				
+				<div class="mb-3">
+					<input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+				</div>
+				<div class="mb-3">
+					<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+				</div>
+				<div class="text-center">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+				</div>
+				
+				<div class="form-text text-center mb-5 text-dark">No Registrado? 
+        			<a th:href="@{/registrate/}" ><p style="font-weight: bold;color:green">Crea tu Cuenta</p></a>
+            	</div>
+			</form>
+        	
+        	
+			
+	     </div>
+        </div>
+        
+        </div>
+        
+<!--/#bottom-->
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2022 <a target="_blank" href="#" title=""> Diego Saavedra</a>.
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Acerca de Nosotros</a></li>
+                    <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/#footer-->
+</body>
+</html>
